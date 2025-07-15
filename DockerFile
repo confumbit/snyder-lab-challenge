@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ingest ingest
+COPY .env .
+
+RUN apt-get update && apt-get install -y cron && \
+    echo "0 1 * * * python /app/ingest/ingest.py >> /var/log/cron.log 2>&1" > /etc/cron.d/fitbit-ingest && \
+    chmod 0644 /etc/cron.d/fitbit-ingest && \
+    crontab /etc/cron.d/fitbit-ingest
+
+CMD ["cron", "-f"]

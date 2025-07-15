@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg14
+    container_name: timescaledb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fitbit
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+
+  ingestion:
+    build: .
+    container_name: fitbit_ingestor
+    depends_on:
+      - timescaledb
+    volumes:
+      - ./ingest:/app/ingest
+    env_file:
+      - .env
+    command: ["python", "/app/ingest/ingest.py"]
+
+volumes:
+  timescaledb_data:
