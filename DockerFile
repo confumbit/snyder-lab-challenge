@@ -13,4 +13,4 @@ RUN apt-get update && apt-get install -y cron && \
     chmod 0644 /etc/cron.d/fitbit-ingest && \
     crontab /etc/cron.d/fitbit-ingest
 
-CMD ["python", "/app/ingest/ingest.py"]
+CMD ["cron", "-f"]
