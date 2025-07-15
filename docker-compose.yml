@@ -13,16 +13,23 @@ services:
     volumes:
       - timescaledb_data:/var/lib/postgresql/data
 
-  ingestion:
-    build: .
-    container_name: fitbit_ingestor
+  backend:
+    build: ./backend
+    container_name: fitbit_backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5000:5000"
     depends_on:
       - timescaledb
-    volumes:
-      - ./ingest:/app/ingest
-    env_file:
-      - .env
-    command: ["python", "/app/ingest/ingest.py"]
+
+  frontend:
+    build: ./frontend
+    container_name: fitbit_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
 
 volumes:
   timescaledb_data:

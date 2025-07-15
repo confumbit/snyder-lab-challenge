@@ -12,11 +12,14 @@ This pipeline pulls intraday Fitbit data daily and stores it in a local Timescal
 - **Python Ingestor**: Scheduled via cron to run daily at 1 AM.
 - **Docker**: Manages both services.
 
-#### Setup
-To run:
-   ```bash
-   docker compose up --build
-   ```
-
-
 ## Task 2
+
+I am using a React front-end packaged with create-react-app and an Express.js back-end. It is a fairly simple modular design that can be extended quite easily.
+
+#### Setup
+
+To run:
+
+```bash
+docker compose up --build
+```
