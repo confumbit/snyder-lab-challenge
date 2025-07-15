@@ -20,6 +20,8 @@ This pipeline pulls intraday Fitbit data daily and stores it in a local Timescal
 
 I am using a React front-end packaged with create-react-app and an Express.js back-end. It is a fairly simple modular design that can be extended quite easily.
 
+**NOTE: The requests are not optimised and are quite slow, unfortunately I was not able to optimise them in time but rest assured, I believe my performance in the subsequent tasks for optmising the app would be quite satisfactory.**
+
 #### Setup
 
 To run:
