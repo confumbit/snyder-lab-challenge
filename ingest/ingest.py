@@ -59,6 +59,8 @@ def ingest_to_db(data):
     """
     )
 
+    print("CREATED THE TABLE LESGOOOOO???")
+
     # In actual use, we will only take the last day's data since our cron job runs daily.
     # Each new day has completely new data removing the necessity of using the otherwise more efficient UPSERT query.
     for day in data:
