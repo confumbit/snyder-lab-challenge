@@ -24,7 +24,7 @@ I am using a React front-end packaged with create-react-app and an Express.js ba
 
 #### Setup
 
-To run:
+**To run:**
 
 ```bash
 docker compose up --build
