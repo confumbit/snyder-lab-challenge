@@ -2,6 +2,8 @@ Task 0 a can be found in task0a.md
 
 Task 0 b is performed in conjuction with Task 1 and specifically can be found in the `fetch_fitbit_data` function in `ingest/ingest.py`
 
+**NOTE: The .env file has not been added to gitignore since this project is for demostration purposes and we are only working with synthetic data.**
+
 ## Task 1
 
 ### Fitbit to TimescaleDB Ingestion Pipeline
